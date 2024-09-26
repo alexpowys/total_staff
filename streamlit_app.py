@@ -46,7 +46,7 @@ df = pd.DataFrame(result,
 # Create a simple bar chart
 # See docs.streamlit.io for more types of charts
 st.subheader("Commission and Total Sales")
-st.bar_chart(data=df, x="Staff Count")
+st.bar_chart(data=df, x="Training")
 
 st.subheader("Underlying data")
 st.dataframe(df, use_container_width=True)
