@@ -6,9 +6,9 @@ import pandas as pd
 
 
 # Write directly to the app
-st.title("MoD Commission Dashboard")
+st.title("Staff Training Counts")
 st.write(
-    """MoD Commissions for previous cycle
+    """Counts
     """
 )
 
@@ -45,7 +45,7 @@ df = pd.DataFrame(result,
 
 # Create a simple bar chart
 # See docs.streamlit.io for more types of charts
-st.subheader("Commission and Total Sales")
+st.subheader("Staffing Training Counts")
 st.bar_chart(data=df, x="Training")
 
 st.subheader("Underlying data")
