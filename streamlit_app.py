@@ -6,7 +6,7 @@ import pandas as pd
 
 
 # Write directly to the app
-st.title("Staff Training Counts")
+st.title("Active Staff Training Counts")
 st.write(
     """Counts
     """
@@ -26,13 +26,15 @@ query = '''
 with cte as (select 
 display_name,
 value:Module as module_id,
-t1.title as title
+t1.title as title,
+active
 from deputy.fact.employees_fact_recent as t0
 left join table(flatten(input => t0.training_array, outer => TRUE)) f 
 left join deputy.fact.training_module_recent as t1
 on module_id = t1.id)
 select count(display_name) as staff_count, title from cte 
 where title in ('Level 1', 'Level 2', 'Level 3', 'MOD')
+and active
 group by title
 order by staff_count desc;
 '''
